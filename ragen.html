@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAGEN Paper Summary</title>
+<style>
+body { margin:0; font-family: 'Helvetica', Arial, sans-serif; line-height:1.6; color:#333; background-color:#f7f7f7; }
+header { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color:#fff; padding:40px 20px; }
+header h1 { margin:0; font-size:2.5em; }
+header p { margin-top:10px; font-size:1.1em; color:#c7dbe6; }
+.container { max-width:900px; margin:0 auto; padding:40px 20px; background:#fff; }
+section { margin-bottom:30px; }
+section h2 { margin-top:0; font-size:1.5em; }
+ul { padding-left:20px; }
+footer { text-align:center; padding:20px 0; color:#666; margin-top:40px; }
+a { color:#0066cc; }
+</style>
+</head>
+<body>
+<header>
+<h1>RAGEN: Understanding Self‑Evolution in LLM Agents</h1>
+<p>Detailed summary and insights</p>
+</header>
+<div class="container">
+<section>
+  <h2>Overview</h2>
+  <p><strong>RAGEN</strong> is a research project that studies how large language model (LLM) agents can learn to improve themselves through multi‑turn reinforcement learning. Existing reinforcement learning approaches largely target single‑turn tasks where a model responds to a prompt and receives a reward. In contrast, agent settings require sequential decision‑making, memory across turns and adaptation to stochastic feedback【12620201786112†L109-L134】.</p>
+  <p>The authors introduce <strong>StarPO</strong> (State‑Thinking‑Actions‑Reward Policy Optimization), a general framework for trajectory‑level reinforcement learning. StarPO treats an entire multi‑turn interaction—states, reasoning traces, actions and rewards—as a single trajectory to optimize【12620201786112†L340-L360】. Built on this framework, they design <strong>RAGEN</strong>, a modular system that handles rollout generation, reward assignment and policy updates for LLM agents【12620201786112†L140-L151】.</p>
+</section>
+<section>
+  <h2>Challenges and Findings</h2>
+  <p>The study highlights several challenges in training LLM agents. Multi‑turn reinforcement learning often suffers from an instability pattern called the <em>Echo Trap</em>: reward variance collapses, entropy drops and gradient spikes lead agents to overfit to locally rewarded reasoning patterns【12620201786112†L164-L180】. To mitigate this, the authors propose <strong>StarPO‑S</strong>, a stabilized variant that filters trajectories based on variability, incorporates a critic baseline and decouples gradient clipping【12620201786112†L170-L180】.</p>
+  <p>Through systematic experiments, they find that agent self‑evolution is sensitive to how rollouts are collected. Effective training requires:</p>
+  <ul>
+    <li><strong>Diverse initial states and multiple actions per turn:</strong> starting from varied states and allowing several actions expands the interaction horizon and leads to better learning【12620201786112†L181-L190】.</li>
+    <li><strong>High rollout frequency:</strong> collecting rollouts frequently ensures that feedback reflects the current policy【12620201786112†L181-L191】.</li>
+    <li><strong>Reasoning‑aware reward signals:</strong> simply prompting the model to think aloud does not guarantee the emergence of reasoning; rewards must directly encourage useful reasoning. Otherwise, models resort to shallow strategies or hallucinated thoughts【12620201786112†L192-L307】.</li>
+  </ul>
+  <p>These findings emphasize that careful rollout design and reward shaping are essential for stable agent training.</p>
+</section>
+<section>
+  <h2>Evaluation</h2>
+  <p>RAGEN is evaluated on four environments that span different levels of difficulty:</p>
+  <ul>
+    <li><strong>Bandit (single‑turn, stochastic):</strong> a minimal environment where each turn yields a reward. It highlights the limitations of single‑turn RL【12620201786112†L154-L160】.</li>
+    <li><strong>Sokoban (multi‑turn, deterministic) and Frozen Lake (multi‑turn, stochastic):</strong> small grid‑world puzzles that require planning over multiple steps【12620201786112†L156-L160】.</li>
+    <li><strong>WebShop (multi‑turn, open‑domain):</strong> a web‑based shopping environment that introduces real‑world complexity【12620201786112†L154-L163】.</li>
+  </ul>
+  <p>Across these tasks, the authors observe that baseline RL methods struggle to induce reasoning behaviors. Without gradient stabilization and diverse rollouts, agents either collapse into trivial strategies or produce incoherent reasoning. RAGEN with StarPO‑S achieves more stable learning and demonstrates preliminary signs of self‑improvement【12620201786112†L164-L181】.</p>
+</section>
+<section>
+  <h2>Implications</h2>
+  <p>This work suggests that turning LLMs into self‑evolving agents is far from straightforward. Reward design, rollout collection and gradient stability must be carefully managed to avoid failure modes. The modular RAGEN system provides an open infrastructure for the community to study these issues and develop better training strategies for autonomous language agents.</p>
+</section>
+<section>
+  <h2>References</h2>
+  <p><a href="https://arxiv.org/abs/2504.20073">Wang et al., 2025 — RAGEN: Understanding Self‑Evolution in LLM Agents via Multi‑Turn Reinforcement Learning</a></p>
+</section>
+</div>
+<footer>
+<p><a href="index.html">← Back to Home</a></p>
+</footer>
+</body>
+</html>
