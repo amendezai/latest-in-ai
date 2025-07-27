@@ -1,52 +1,38 @@
-https://github.com/amendezai/latest-in-ai/new/main
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Latest in AI</title>
-<style>
-body { margin:0; font-family: 'Helvetica', Arial, sans-serif; line-height:1.6; color:#333; background-color:#f7f7f7;}
-header { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color:#fff; padding:60px 20px; text-align:center;}
-header h1 { margin:0; font-size:3em; font-weight:bold;}
-header p { margin-top:10px; font-size:1.2em; color:#c7dbe6;}
-.container { max-width:900px; margin:0 auto; padding:40px 20px;}
-.post { background:#fff; border-radius:8px; padding:30px; box-shadow:0 4px 8px rgba(0,0,0,0.05); margin-bottom:40px;}
-.post h2 { margin-top:0; font-size:2em;}
-.post .meta { color:#777; font-size:0.9em; margin-bottom:20px;}
-.post ul { margin:20px 0; padding-left:20px;}
-.post ul li { margin:10px 0;}
-footer { text-align:center; padding:20px 0; color:#666;}
-a { color:#0066cc;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest in AI</title>
+    <style>
+        body { margin:0; font-family: 'Helvetica', Arial, sans-serif; line-height:1.6; color:#333; background-color:#f7f7f7; }
+        header { background: linear-gradient(135deg, #f02a7f, #203af3, #23a3a3); color:#fff; padding:60px 20px; text-align:center; }
+        header h1 { margin:0; font-size:3em; font-weight:bold; }
+        header p { margin-top:10px; font-size:1.2em; color:#f7db6e; }
+        .container { max-width:900px; margin:0 auto; padding:40px 20px; }
+        .post { background:#fff; border-radius:8px; padding:30px; box-shadow:0 0 8px rgba(0,0,0,0.05); margin-bottom:40px; }
+        .post h2 { margin-top:0; font-size:2em; }
+        .post .meta { color:#777; font-size:0.9em; margin-bottom:20px; }
+        .post a { color:#0066cc; text-decoration:none; }
+        .post a:hover { text-decoration:underline; }
+        footer { text-align:center; padding:20px 0; color:#666; }
+    </style>
 </head>
 <body>
-<header>
-  <h1>Latest in AI</h1>
-  <p>A curated blog of current AI research papers</p>
-</header>
-<div class="container">
-  <article class="post">
-    <h2>Understanding Self‑Evolution in LLM Agents with RAGEN</h2>
-    <div class="meta">Published: Apr 2025 | Authors: Zihan Wang et al.</div>
-    <p>RAGEN is a modular system for training large language model (LLM) agents and analyzing their self‑evolution through multi‑turn reinforcement learning. Built on top of the StarPO (State‑Thinking‑Actions‑Reward Policy Optimization) framework, RAGEN enables trajectory‑level reinforcement learning where an agent generates reasoning‑guided actions, interacts with an environment over multiple turns and updates its policy based on trajectory‑level rewards.</p>
-    <p>The authors demonstrate that training LLM agents in multi‑turn environments poses unique challenges not seen in single‑turn tasks. Their study reveals recurring instabilities—termed the <em>Echo Trap</em>—where reward variance collapses and gradient spikes cause agents to overfit to locally rewarded reasoning patterns【12620201786112†L164-L179】. To address this, they introduce StarPO‑S, a stabilized variant with variability‑based trajectory filtering, critic incorporation and gradient stabilization【12620201786112†L164-L179】.</p>
-    <p>The paper identifies other key factors that shape self‑evolving agents. Effective training requires:</p>
-    <ul>
-      <li>Diverse initial states and multiple actions per turn to increase interaction horizon【12620201786112†L181-L190】.</li>
-      <li>High rollout frequency to ensure feedback reflects the current policy【12620201786112†L181-L191】.</li>
-      <li>Fine‑grained, reasoning‑aware reward signals; otherwise models may regress to shallow strategies or hallucinated reasoning【12620201786112†L192-L307】.</li>
-    </ul>
-    <p>RAGEN is evaluated on several environments—Bandit, Sokoban, Frozen Lake and WebShop—spanning single‑turn and multi‑turn scenarios. The experiments show that without thoughtful rollout design and reward shaping, agent reasoning fails to emerge and performance is unstable【12620201786112†L164-L181】. These insights suggest that stable, multi‑turn reinforcement learning for LLM agents requires careful management of gradient stability, rollout diversity and reward design.</p>
-    <p><strong>References:</strong> <a href="https://arxiv.org/abs/2504.20073">arXiv: RAGEN: Understanding Self‑Evolution in LLM Agents via Multi‑Turn Reinforcement Learning</a>.</p>
-  </article>
-  <div class="post">
-    <h2>More papers coming soon</h2>
-    <p>Stay tuned! This blog will be updated with summaries of other interesting AI research papers.</p>
-  </div>
-</div>
-<footer>
-  &copy; 2025 Latest in AI
-</footer>
+    <header>
+        <h1>Latest in AI</h1>
+        <p>A curated blog of current AI research papers</p>
+    </header>
+    <div class="container">
+        <div class="post">
+            <h2><a href="ragen.html">Reinforced Agents that Generate and Execute (RAGEN)</a></h2>
+            <p class="meta">April 2024</p>
+            <p>This post summarises RAGEN, a paper that introduces the StarPO framework for training large language models as reinforcement-learning agents and explores challenges like the Echo Trap instability, multi-turn rollouts, and the importance of reasoning-aware reward signals.</p>
+            <p><a href="ragen.html">Read the full detailed RAGEN summary »</a></p>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Latest in AI
+    </footer>
 </body>
 </html>
